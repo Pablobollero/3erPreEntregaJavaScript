@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Che.Ciudadania Italiana</title>
+    <!-- CDN BOOTSWATCH -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+    <!-- BOOTSWATCH CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- CDN BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <!-- MI CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="bodyContainer">
+        <header>
+        <!-- NAVBAR BOOTSWATCH -->
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">CHE Ciudadania Italiana</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./queofrecemos.html">Que ofrecemos!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./servicios.html">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        </header>
+        <main id="mainContacto">
+            <form class="row g-3" id="formularioContacto">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Direccion</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputPais" class="form-label">Pais</label>
+                    <select id="inputPais" class="form-select">
+                        <option selected>Choose...</option>
+                        <option>Argentina</option>
+                        <option>Uruguay</option>
+                        <option>Brazil</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="inputCp" class="form-label">Codigo Postal</label>
+                    <input type="text" class="form-control" id="inputCp">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+            <span class="m-5 bg-white bg-opacity-25 rounded-5"><p><b>Encontranos en Instagram como</b><h1><a id="linkToChe" href="https://www.instagram.com/che.ciudadaniaitaliana/" rel="noopener" target="_blank">@che.ciudadaniaitaliana</a></h1></p></span>
+        </main>
+    </div>
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Datos cargados con éxito</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡Tus datos han sido cargados exitosamente en el Local Storage!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CDN BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- MI JS -->
+    <script src="../js/formulario.js"></script>
+</body>
+</html>

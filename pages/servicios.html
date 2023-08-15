@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Che.Ciudadania Italiana</title>
+    <!-- CDN BOOTSWATCH -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+    <!-- BOOTSWATCH CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- MI CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="bodyContainer">
+        <header>
+            <!-- NAVBAR BOOTSWATCH -->
+            <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">CHE Ciudadania Italiana</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./queofrecemos.html">Que ofrecemos!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <!-- Button trigger modal -->
+                    <button type="button" id="buttonTrigger" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img id="cartIcon" src="../img/Icons/shopping_cart_FILL0_wght300_GRAD200_opsz24.png" alt="Shopping Cart Icon">
+                    </button>
+                </div>
+            </div>
+        </nav>
+        </header>
+        <main>
+            <!-- CARD -->
+            <section id="contenedorServicios" class="d-flex justify-content-center"></section>
+            <section id="carrito">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div id="contenedorCarrito" class="modal-body">
+                                <!-- Aquí se mostrarán los elementos del carrito -->
+                            </div>
+                            <div class="modal-body">
+                                <!-- Mostrará el costo total en el carrito -->
+                                <span><p id="totalCarrito"></p></span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir comprando</button>
+                                <button type="button" id="finalizarCompra" class="btn btn-danger">Finalizar compra</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>        
+        </main>
+    </div>
+    <!-- CDN BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- MI JS -->
+    <script src="../js/servicio.js"></script>
+</body>
+</html>

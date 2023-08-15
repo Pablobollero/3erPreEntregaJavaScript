@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+
+.imgServicio {
+    width: 15rem;
+}
+
+.deleteIcon{
+    width: 2rem;
+}
+
+.navbar-brand{
+    font-size: 3rem;
+}
+
+.nav-item{
+    margin-inline: 12rem;
+}
+
+#bodyContainer {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/img/pictures/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mainIndex {
+    margin: 20rem auto;
+}
+
+#titleIndex, #subtitleIndex {
+    margin-block: 4rem;
+    color: black;
+    text-align: center;
+}
+
+#titleIndex {
+    font-size: 10rem;
+    letter-spacing: 2.5rem;
+}
+
+#subtitleIndex {
+    font-size: 4rem;
+    width: 75%;
+    letter-spacing: 1rem;
+    margin-left: 22rem;
+}
+
+#mainAbout {
+    margin: 8rem auto;
+    width: 125rem;
+    color: black;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0.4rem;
+}
+
+#mainContacto {
+    width: 80rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 24rem auto;
+    color: black;
+    font-size: 2rem;
+    font-style: italic;
+}
+
+#contenedorServicios {
+    margin-top: 25rem;
+    gap: 10rem;
+}
+
+.imgServicio {
+    margin: 1rem auto;
+}
+
+#aC-1, #aC-2, #aC-3, #aC-4{
+    display: block;
+    margin: 0 auto;
+}
+
+#servicio1, #servicio2, #servicio3, #servicio4 {
+    width: 60rem;
+    margin: 1.25rem;
+}
+
+.subtituloQueofrecemos {
+    padding: 0.25rem;
+    margin-block: 2rem;
+}
+
+#mainQueofrecemos {
+    margin: 8rem auto;
+    color: black;
+    letter-spacing: 0.2rem;
+    font-size: 1.5rem;
+}
+
+section>p {
+    font-size: 2rem;
+    margin-block: 2rem;
+}
+
+#linkToChe {
+    font-size: 6rem;
+    font-weight: 500;
+    text-decoration: none;
+}
