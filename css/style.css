@@ -25,7 +25,7 @@ html{
 #bodyContainer {
     width: 100vw;
     height: 100vh;
-    background-image: url("/img/pictures/background.jpg");
+    background-image: url("/img/pictures/Banderas-de-Italia-y-Argentina-unidas.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -109,7 +109,70 @@ section>p {
 }
 
 #linkToChe {
+    color: darkblue;
     font-size: 6rem;
     font-weight: 500;
     text-decoration: none;
+}
+
+/* unvisited link */
+.linkServicios:link {
+color: darkblue;
+}
+
+/* visited link */
+.linkServicios:visited {
+color: darkblue;
+}
+
+/* mouse over link */
+.linkServicios:hover {
+color: darkred;
+}
+
+/* selected link */
+.linkServicios:active {
+color:whitesmoke;
+}
+
+.linkServicios {
+    text-decoration: none;
+}
+
+#mainServicios {
+    text-align: center;
+}
+
+#mainServicios > section >h1 {
+    margin-top: 5rem;
+}
+
+#mainServicios > section >h2 {
+    margin: 5rem;
+    color: darkgreen;
+    font-weight: bolder;
+}
+
+#mainServicios > section >p {
+    color: black;
+}
+
+#formCreacionUsuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    color:black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#contenedorServicios{
+    margin-top: 5rem;
+}
+
+#mainServicios > section >.advertencia{
+    color: red;
+    font-weight: bolder;
 }

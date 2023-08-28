@@ -19,6 +19,23 @@ class Carrito{
         let listaCarritoJSON = JSON.stringify(this.listaCarrito)
         localStorage.setItem("listaCarrito", listaCarritoJSON)
     }
+    guardarPersonaEnStorage(persona) {
+        localStorage.setItem("persona", JSON.stringify(persona));
+    }
+
+    cargarPersonaDesdeStorage() {
+        const personaJSON = localStorage.getItem("persona");
+        return JSON.parse(personaJSON);
+    }
+
+    mostrarDatosPersonaEnFormulario() {
+        const persona = this.cargarPersonaDesdeStorage();
+        if (persona) {
+            document.getElementById("inputName").value = persona.nombre;
+            document.getElementById("inputSurname").value = persona.apellido;
+            document.getElementById("inputEmail").value = persona.email;
+        }
+    }
 
     agregar(agregarServicio){
         let servicioEncontrado = this.listaCarrito.some(servicio => servicio.id == agregarServicio.id)
@@ -101,36 +118,62 @@ class Carrito{
             });
         });
     }
-    //Evento al boton Finalizar Compra
-    finalizarCompra(){
-        const FINALIZAR_COMPRA = document.getElementById("finalizarCompra")
-        FINALIZAR_COMPRA.addEventListener("click", () =>{
-            
+    // Evento al boton Finalizar Compra
+    finalizarCompra() {
+        const FINALIZAR_COMPRA = document.getElementById("finalizarCompra");
+        FINALIZAR_COMPRA.addEventListener("click", () => {
             let totalDeCompra = 0;
             this.listaCarrito.forEach(servicio => {
                 totalDeCompra += servicio.valor * servicio.cantidad;
             });
 
-            this.listaCarrito = []
-            localStorage.removeItem("listaCarrito")
-            this.mostrarServicios()
+            this.listaCarrito = [];
+            localStorage.removeItem("listaCarrito");
+            this.mostrarServicios();
 
             let contenedorCarrito = document.getElementById(`contenedorCarrito`);
-            // Oculta el total en carrito
             const totalCarrito = document.getElementById("totalCarrito");
+            const persona = this.cargarPersonaDesdeStorage();
 
-            if (totalDeCompra > 0){
-                contenedorCarrito.innerHTML += `<h3 id="mensajeDeCompra">COMPRA EXITOSA!</h3>\n\n<h4 id="costoDecompra">Costo Total: $${totalDeCompra}</h4>`;
-            
-            totalCarrito.style.display = "none";
-            }else{
-                contenedorCarrito.innerHTML += `<h3 id="mensajeDeCompra">AGREGUE PRODUCTOS PARA COMPRAR!</h3>`;
-            
-            totalCarrito.style.display = "none";
+            if (totalDeCompra > 0) {
+                contenedorCarrito.innerHTML += `<h3 id="mensajeDeCompra">FELICIDADES ${persona.nombre} COMPRA EXITOSA!</h3>\n\n<h4 id="costoDecompra">Costo Total: $${totalDeCompra}</h4>`;
+                totalCarrito.style.display = "none";
+                // Agregar evento al botón "Cerrar" para reiniciar y cerrar
+            const seguirComprandoBtn = document.getElementById("seguirComprando");
+            seguirComprandoBtn.textContent = "Cerrar";
+
+            // Ocultar el botón "Finalizar Compra"
+            FINALIZAR_COMPRA.style.display = "none";
+    
+            // Evento al botón "Cerrar"
+            seguirComprandoBtn.addEventListener("click", () => {
+                localStorage.clear(); // Remover todos los datos del Local Storage
+                this.listaCarrito = []; // Limpiar el carrito en memoria
+                this.mostrarServicios(); // Mostrar el carrito vacío en la página
+                this.mostrarDatosPersonaEnFormulario(); // Limpiar el formulario en la página
+                
+                // Borrar los valores ingresados en los campos del formulario
+                document.getElementById("inputName").value = "";
+                document.getElementById("inputSurname").value = "";
+                document.getElementById("inputEmail").value = "";
+            });
+            } else {
+                contenedorCarrito.innerHTML += `<h3 id="mensajeDeCompra">${persona.nombre} AGREGUE PRODUCTOS PARA COMPRAR!</h3>`;
+                totalCarrito.style.display = "none";
             }
-        })
-    }
-}
+
+            const cerrarModalBtn = document.getElementById("cerrarModal");
+            if (cerrarModalBtn) {
+                cerrarModalBtn.addEventListener("click", () => {
+                    localStorage.removeItem("persona"); // Remover los datos del formulario del Local Storage
+                    localStorage.removeItem("listaCarrito"); // Remover el carrito del Local Storage
+                    this.listaCarrito = []; // Limpiar el carrito en memoria
+                    this.mostrarServicios(); // Mostrar el carrito vacío en la página
+                    this.mostrarDatosPersonaEnFormulario(); // Limpiar el formulario en la página
+                });
+            }
+        });
+    }}
 
 class ProductController{
     constructor(){
@@ -169,11 +212,31 @@ const SERV2 = new Servicio(2, "Via Judicial", 35, "../img/Icons/viaJudicial.svg"
 const SERV3 = new Servicio(3, "Asseverazioni", 40, "../img/Icons/asseverazioni.svg")
 const SERV4 = new Servicio(4, "Control de Carpeta", 45, "../img/Icons/controlCarpeta.svg")
 
+// Agrega el evento al formulario para capturar y guardar los datos de la persona
+const formCreacionUsuario = document.getElementById("formCreacionUsuario");
+formCreacionUsuario.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const inputName = document.getElementById("inputName").value;
+    const inputSurname = document.getElementById("inputSurname").value;
+    const inputEmail = document.getElementById("inputEmail").value;
+
+    const persona = {
+        nombre: inputName,
+        apellido: inputSurname,
+        email: inputEmail
+    };
+
+    CARRITO.guardarPersonaEnStorage(persona);
+    // Mostrar un mensaje o realizar alguna acción adicional si es necesario
+});
+
 //INSTANCIA DE CARRITO ¦ PARA LOS PRODUCTOS QUE EL CLIENTE ELIJA
 const CARRITO = new Carrito()
 CARRITO.obtenerLocalStorage()
 CARRITO.mostrarServicios()
 CARRITO.finalizarCompra()
+CARRITO.mostrarDatosPersonaEnFormulario(); // Agrega esta línea para mostrar los datos almacenados en el formulario
 
 //INSTANCIA DE PRODUCTOCONTROLLER
 const PRODCONTROLLER = new ProductController()

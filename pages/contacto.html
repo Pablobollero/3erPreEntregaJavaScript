@@ -30,7 +30,7 @@
                             <a class="nav-link active" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./aboutus.html">About us</a>
+                            <a class="nav-link" href="./aboutus.html">Sobre nosotros...</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./queofrecemos.html">Que ofrecemos!</a>
@@ -48,17 +48,9 @@
         </header>
         <main id="mainContacto">
             <form class="row g-3" id="formularioContacto">
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
-                </div>
                 <div class="col-12">
-                    <label for="inputAddress" class="form-label">Direccion</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <label for="inputName" class="form-label">Nombre y Apellido</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="John Doe..">
                 </div>
                 <div class="col-md-4">
                     <label for="inputPais" class="form-label">Pais</label>
@@ -67,11 +59,17 @@
                         <option>Argentina</option>
                         <option>Uruguay</option>
                         <option>Brazil</option>
+                        <option>Peru</option>
+                        <option>Chile</option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <label for="inputCp" class="form-label">Codigo Postal</label>
-                    <input type="text" class="form-control" id="inputCp">
+                <div class="col-md-8">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail">
+                </div>
+                <div class="col-md-12">
+                    <label for="inputQuery" class="form-label">Envianos tu consulta</label>
+                    <textarea id="inputQuery" class="form-control" name="query" rows="5" cols="33" placeholder="Quisiera mas informacion sobre..."></textarea>
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Enviar</button>
@@ -85,11 +83,27 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="confirmationModalLabel">Datos cargados con éxito</h5>
+                    <h5 class="modal-title" id="confirmationModalLabel">CONFIRMACION!!!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ¡Tus datos han sido cargados exitosamente en el Local Storage!
+                    ¡Tus consulta ha sido enviada con exito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="warningModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="warningModalLabel">ADVERTENCIA!!!!!!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡Completa el formulario antes de enviar!
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

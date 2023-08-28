@@ -28,7 +28,7 @@
                             <a class="nav-link active" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./aboutus.html">About us</a>
+                            <a class="nav-link" href="./aboutus.html">Sobre nosotros...</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./queofrecemos.html">Que ofrecemos!</a>
@@ -48,7 +48,32 @@
             </div>
         </nav>
         </header>
-        <main>
+        <main id="mainServicios">
+            <section>
+                <h1>Bienvenidos a la seccion de Servicios</h1>
+            </section>
+            <section>
+                <h2>En esta seccion podras elegir uno o mas de nuestros servicios que desees contratar</h2>
+                <p>Por favor, complete el siguiente formulario para una mejor experiencia si desea comprar algun servicio abajo mecionado.</p>
+                <p class="advertencia">CASO CONTRARIO POR FAVOR HAGA CLICK <a class="linkServicios" href="./contacto.html">AQUI!</a></p>
+            </section>
+            <form class="row g-3" id="formCreacionUsuario">
+                <div class="col-1">
+                    <label for="inputName" class="form-label">Nombre/s</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="John...">
+                </div>
+                <div class="col-1">
+                    <label for="inputSurname" class="form-label">Apellido/s</label>
+                    <input type="text" class="form-control" id="inputSurname" placeholder="Doe...">
+                </div>
+                <div class="col-1">
+                    <label for="inputEmail" class="form-label">E-Mail</label>
+                    <input type="text" class="form-control" id="inputEmail" placeholder="johndoe@...">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>                
+            </form>
             <!-- CARD -->
             <section id="contenedorServicios" class="d-flex justify-content-center"></section>
             <section id="carrito">
@@ -68,7 +93,7 @@
                                 <span><p id="totalCarrito"></p></span>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir comprando</button>
+                                <button type="button" class="btn btn-success" id="seguirComprando" data-bs-dismiss="modal">Seguir comprando</button>
                                 <button type="button" id="finalizarCompra" class="btn btn-danger">Finalizar compra</button>
                             </div>
                         </div>
