@@ -25,7 +25,7 @@ html{
 #bodyContainer {
     width: 100vw;
     height: 100vh;
-    background-image: url(./img/pictures/Banderas-de-Italia-y-Argentina-unidas.jpg);
+    background-image: url(../img/pictures/Banderas-de-Italia-y-Argentina-unidas.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
