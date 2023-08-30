@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "Acompañamiento",
+        "valor": 30,
+        "img": "../img/Icons/acompaniamiento.svg"
+    },
+    {
+        "id": 2,
+        "nombre": "Via Judicial",
+        "valor": 35,
+        "img": "../img/Icons/viaJudicial.svg"
+    },
+    {
+        "id": 3,
+        "nombre": "Asseverazioni",
+        "valor": 40,
+        "img": "../img/Icons/asseverazioni.svg"
+    },
+    {
+        "id": 4,
+        "nombre": "Control de Carpeta",
+        "valor": 45,
+        "img": "../img/Icons/controlCarpeta.svg"
+    }
+]

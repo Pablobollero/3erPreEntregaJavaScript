@@ -1,5 +1,7 @@
+// Clase que define un servicio
 class Servicio{
     constructor(id,nombre,valor,img){
+        // Propiedades del servicio
         this.id = id
         this.nombre = nombre
         this.cantidad = 1
@@ -8,10 +10,13 @@ class Servicio{
     }
 }
 
+// Clase que maneja el carrito de compras
 class Carrito{
     constructor(){
+        // Lista de servicios en el carrito
         this.listaCarrito = []
     }
+    // Métodos para interactuar con el Local Storage
     obtenerLocalStorage(){
         this.listaCarrito = JSON.parse(localStorage.getItem("listaCarrito")) || []
     }
@@ -37,6 +42,7 @@ class Carrito{
         }
     }
 
+    // Agregar un servicio al carrito
     agregar(agregarServicio){
         let servicioEncontrado = this.listaCarrito.some(servicio => servicio.id == agregarServicio.id)
         if(servicioEncontrado){
@@ -46,11 +52,13 @@ class Carrito{
         this.listaCarrito.push(agregarServicio)
     } 
     }
+    // Eliminar un servicio del carrito
     eliminar(servicioAQuitar) {
         let servicio = this.listaCarrito.find(servicio =>servicio.id == servicioAQuitar)
         let indice = this.listaCarrito.indexOf(servicio)
         this.listaCarrito.splice(indice,1)
     }
+    // Mostrar servicios en el carrito
     mostrarServicios() {
         let contenedorCarrito = document.getElementById(`contenedorCarrito`)
         contenedorCarrito.innerHTML = ""
@@ -82,16 +90,17 @@ class Carrito{
         // Muestra el  total en carrito
     const totalCarrito = document.getElementById("totalCarrito");
     totalCarrito.textContent = `Total en Carrito: $${costoTotal}`;
-    // Evento eliminar
+        // Evento eliminar
         this.listaCarrito.forEach(servicio => {
-            let btnEliminar = document.getElementById(`eliminar-${servicio.id}`)
+            let btnEliminar = document.getElementById(`eliminar-${servicio.id}`);
 
             btnEliminar.addEventListener("click", () => {
-                this.eliminar(servicio)
-                this.guardarEnStorage()
-                this.mostrarServicios()
-            })
-        })
+                this.eliminar(servicio);
+                this.guardarEnStorage();
+                this.mostrarServicios();
+            });
+        });
+
         // Evento minus
         this.listaCarrito.forEach(servicio => {
             let btnMinus = document.getElementById(`minus-${servicio.id}`);
@@ -118,7 +127,7 @@ class Carrito{
             });
         });
     }
-    // Evento al boton Finalizar Compra
+    // Finalizar la compra
     finalizarCompra() {
         const FINALIZAR_COMPRA = document.getElementById("finalizarCompra");
         FINALIZAR_COMPRA.addEventListener("click", () => {
@@ -175,13 +184,17 @@ class Carrito{
         });
     }}
 
+// Clase que controla los productos y su renderización en la página
 class ProductController{
     constructor(){
+        // Lista de servicios disponibles
         this.listaServicios = []
     }
+    // Agregar un servicio a la lista
     agregar(servicio){
         this.listaServicios.push(servicio)
     }
+    // Renderizar servicios en el DOM
     renderizarServiciosDOM(){
         let contenedorServicios = document.getElementById("contenedorServicios")
         this.listaServicios.forEach(servicio => {
@@ -205,14 +218,32 @@ class ProductController{
         })
     }
 }
+// ... Código anterior ...
 
-//INSTANCIA DE SERVICIO.
+fetch('/js/datos.json') 
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(servicioData => {
+            const servicio = new Servicio(
+                servicioData.id,
+                servicioData.nombre,
+                servicioData.valor,
+                servicioData.img
+            );
+            PRODCONTROLLER.agregar(servicio);
+        });
+    })
+    .catch(error => {
+        console.error('Error al cargar datos de servicios:', error);
+    });
+
+// Instancias de servicios
 const SERV1 = new Servicio(1, "Acompañamiento", 30, "../img/Icons/acompaniamiento.svg")
 const SERV2 = new Servicio(2, "Via Judicial", 35, "../img/Icons/viaJudicial.svg")
 const SERV3 = new Servicio(3, "Asseverazioni", 40, "../img/Icons/asseverazioni.svg")
 const SERV4 = new Servicio(4, "Control de Carpeta", 45, "../img/Icons/controlCarpeta.svg")
 
-// Agrega el evento al formulario para capturar y guardar los datos de la persona
+// Evento para capturar y guardar los datos de la persona
 const formCreacionUsuario = document.getElementById("formCreacionUsuario");
 formCreacionUsuario.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -231,14 +262,14 @@ formCreacionUsuario.addEventListener("submit", function(event) {
     // Mostrar un mensaje o realizar alguna acción adicional si es necesario
 });
 
-//INSTANCIA DE CARRITO ¦ PARA LOS PRODUCTOS QUE EL CLIENTE ELIJA
+// Instancia de Carrito
 const CARRITO = new Carrito()
 CARRITO.obtenerLocalStorage()
 CARRITO.mostrarServicios()
 CARRITO.finalizarCompra()
-CARRITO.mostrarDatosPersonaEnFormulario(); // Agrega esta línea para mostrar los datos almacenados en el formulario
+CARRITO.mostrarDatosPersonaEnFormulario();
 
-//INSTANCIA DE PRODUCTOCONTROLLER
+// Instancia de ProductController
 const PRODCONTROLLER = new ProductController()
 
 PRODCONTROLLER.agregar(SERV1)
